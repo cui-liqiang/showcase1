@@ -1,20 +1,22 @@
 package domain;
 
 import core.annotation.Component;
+import core.annotation.Qualified;
+
 import javax.inject.Inject;
 
 @Component
 public class AppRunner {
     private Vehicle car;
-    @Inject private Vehicle truck;
+    @Inject @Qualified(id="truck") private Vehicle truck;
 
     private Vehicle jeep;
 
-    @Inject public AppRunner(Vehicle car) {
+    @Inject public AppRunner(@Qualified(id="car")Vehicle car) {
         this.car = car;
     }
 
-    @Inject
+    @Inject @Qualified(id="jeep")
     public void setJeep(Vehicle jeep) {
         this.jeep = jeep;
     }
