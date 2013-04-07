@@ -21,3 +21,15 @@ In IDEA
     open Main.java
     run it
     see it "works without one simple constructor injection"
+
+Let's try setter injection. There are two ways to use setter inject: add @Inject to field and add @Inject to setter. In either way, setter should be present.
+
+run the following command:
+$ git checkout c3790d0
+$ gradle cleanIdea idea
+
+In IDEA
+    reload the project
+    open Main.java
+    run it
+    see it "car, truck, and jeep are all running"
