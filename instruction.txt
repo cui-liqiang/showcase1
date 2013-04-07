@@ -10,7 +10,9 @@ In IDEA
     run it
     see it "works without dependency injection"
 
+------------------------------------------------------------------------------------------------------------------------------------------
 Now let's try one simple injection example, all injectors(objects injected to other objects) and injectees(objects injected by other objects) should be annotated with @Component
+
 
 run the following command:
 $ git checkout 5d7d0e8
@@ -22,6 +24,7 @@ In IDEA
     run it
     see it "works with one simple constructor injection"
 
+------------------------------------------------------------------------------------------------------------------------------------------
 Let's try setter injection. There are two ways to use setter inject: add @Inject to field and add @Inject to setter. In either way, setter should be present.
 
 run the following command:
@@ -37,7 +40,7 @@ In IDEA
 Of course, Car can also have other dependencies.
 Just using @Component and @Inject, you can accomplish the easy job as above.
 
---------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Let's try to make the application more OO by introducing a interface "Vehicle", and let Car, Truck, and Jeep all implement it. Replace all Car, Truck, Jeep with Vehicle in AppRunner.java, and see how it behavior.
 
@@ -52,3 +55,18 @@ In IDEA
     see it "all vehicle become truck..."
 
 That's because Container don't know which concrete class you want. Problem can be solved with Named @Component and @Qualified.
+
+run the following command:
+$ git checkout c3fce66
+$ gradle cleanIdea idea
+
+In IDEA
+    reload the project
+    open Main.java
+    run it
+    see it behavior correctly now.
+
+Check out what happened to Car, Jeep, Truck, and AppRunner.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
