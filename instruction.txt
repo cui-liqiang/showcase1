@@ -20,7 +20,7 @@ In IDEA
     reload the project
     open Main.java
     run it
-    see it "works without one simple constructor injection"
+    see it "works with one simple constructor injection"
 
 Let's try setter injection. There are two ways to use setter inject: add @Inject to field and add @Inject to setter. In either way, setter should be present.
 

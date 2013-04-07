@@ -5,17 +5,17 @@ import javax.inject.Inject;
 
 @Component
 public class AppRunner {
-    private Car car;
-    @Inject private Truck truck;
+    private Vehicle car;
+    @Inject private Vehicle truck;
 
-    private Jeep jeep;
+    private Vehicle jeep;
 
-    @Inject public AppRunner(Car car) {
+    @Inject public AppRunner(Vehicle car) {
         this.car = car;
     }
 
     @Inject
-    public void setJeep(Jeep jeep) {
+    public void setJeep(Vehicle jeep) {
         this.jeep = jeep;
     }
 
@@ -25,7 +25,7 @@ public class AppRunner {
         jeep.run();
     }
 
-    public void setTruck(Truck truck) {
+    public void setTruck(Vehicle truck) {
         this.truck = truck;
     }
 }
