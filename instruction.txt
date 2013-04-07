@@ -1,0 +1,11 @@
+Backup this file first
+
+run the following command:
+$ git checkout e1ded62
+$ gradle cleanIdea idea
+$ open wheel-showcase.ipr
+
+In IDEA
+    open Main.java
+    run it
+    see it "works without dependency injection"
