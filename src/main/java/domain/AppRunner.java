@@ -9,11 +9,13 @@ import javax.inject.Inject;
 public class AppRunner {
     private Vehicle car;
     @Inject @Qualified(id="truck") private Vehicle truck;
+    private Vehicle multiWheel;
 
     private Vehicle jeep;
 
-    @Inject public AppRunner(@Qualified(id="car")Vehicle car) {
+    @Inject public AppRunner(@Qualified(id="car")Vehicle car, @Qualified(id="multiwheel")Vehicle multiWheel) {
         this.car = car;
+        this.multiWheel = multiWheel;
     }
 
     @Inject @Qualified(id="jeep")
@@ -25,6 +27,7 @@ public class AppRunner {
         car.run();
         truck.run();
         jeep.run();
+        multiWheel.run();
     }
 
     public void setTruck(Vehicle truck) {
