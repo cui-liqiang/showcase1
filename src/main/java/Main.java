@@ -7,7 +7,7 @@ public class Main {
         IocContainer container = new IocContainerBuilder().withPackageName("domain")
                                                           .withConfigFile("ioc-config.xml")
                                                           .build();
-        AppRunner runner = container.getBean(AppRunner.class);
+        AppRunner runner = (AppRunner) container.getBeanById("anotherAppRunner");
         runner.run();
     }
 }

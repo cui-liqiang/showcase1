@@ -99,4 +99,14 @@ In IDEA
 
 xml config also support constructor injection and setter injection. See below:
 
+run the following command:
+$ git checkout 62dbb5c
+$ gradle cleanIdea idea
+
+In IDEA
+ see "ioc-config.xml" config bean with cons and setter injection.
+
+But when you run the application, it fail with "Found more than one candidates for type domain.AppRunner. Cannot determine which one to use!"
+That's because now we have two beans generate by container. One is with @Component, one is configured in xml. So getting bean from container by id instead of by type can solve the problem.
+
 You can use xml config and package scan together to define beans and inject beans
