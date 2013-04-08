@@ -85,3 +85,18 @@ In IDEA
 
 Using xml configuration can solve the problem. But wait, don't use primitive as constructor parameter, and you can avoid the trouble. If you really want to do so, go ahead.
 
+run the following command:
+$ git checkout 9e6359c
+$ gradle cleanIdea idea
+
+In IDEA
+    reload the project
+    open Main.java
+    run it
+    see "multiWheelVehicle is running with 5 wheels".
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+xml config also support constructor injection and setter injection. See below:
+
+You can use xml config and package scan together to define beans and inject beans
