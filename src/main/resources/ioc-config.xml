@@ -4,7 +4,7 @@
         <constructor-arg value="5" />
     </bean>
 
-    <bean id="anotherAppRunner" class="domain.AppRunner">
+    <bean id="anotherAppRunner" class="domain.AppRunner" scope="prototype">
         <constructor-arg ref="jeep" />
         <constructor-arg ref="car" />
 

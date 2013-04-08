@@ -2,10 +2,12 @@ package domain;
 
 import core.annotation.Component;
 import core.annotation.Qualified;
+import core.scopes.Prototype;
 
 import javax.inject.Inject;
 
 @Component
+@Prototype
 public class AppRunner {
     private Vehicle car;
     @Inject @Qualified(id="truck") private Vehicle truck;

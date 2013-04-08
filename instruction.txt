@@ -109,4 +109,23 @@ In IDEA
 But when you run the application, it fail with "Found more than one candidates for type domain.AppRunner. Cannot determine which one to use!"
 That's because now we have two beans generate by container. One is with @Component, one is configured in xml. So getting bean from container by id instead of by type can solve the problem.
 
-You can use xml config and package scan together to define beans and inject beans
+run the following command:
+$ git checkout c09383a
+$ gradle cleanIdea idea
+
+In IDEA
+    reload the project
+    open Main.java
+    run it
+    see it works well again.
+
+If you pay attention to the configuration of "anotherAppRunner" in ioc-config.xml, you will find that which bean to use for cons/setter injection has no business with the annotations in source file. We can assign any compatible beans to any constructor parameter and setter no matter what the @Qualified annotation says.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+You can mix xml config and package scan together to define beans and inject beans
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In terms of bean scope, you can configure it in either xml or annotation:
+
