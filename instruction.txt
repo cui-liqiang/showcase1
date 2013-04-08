@@ -1,5 +1,5 @@
 Backup this file first
-
+------------------------------------------------------------------------------------------------------------------------------------------
 run the following command:
 $ git checkout e1ded62
 $ gradle cleanIdea idea
@@ -67,6 +67,5 @@ In IDEA
     see it behavior correctly now.
 
 Check out what happened to Car, Jeep, Truck, and AppRunner.
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------
