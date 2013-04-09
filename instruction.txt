@@ -45,13 +45,12 @@ Just using @Component and @Inject, you can accomplish the easy job as above.
 Let's try to make the application more OO by introducing a interface "Vehicle", and let Car, Truck, and Jeep all implement it. Replace all Car, Truck, Jeep with Vehicle in AppRunner.java, and see how it behavior.
 
 run the following command:
-$ git checkout 68d903a
+$ git checkout fee3900
 
 In IDEA
     open Main.java
     run it
-    see it "all vehicle become truck..."
-    (the right behavior should be failing with "Found more than one candidates for type domain.Vehicle. Cannot determine which one to use!", I fixed it in later revision of jar)
+    see it fail with "Found more than one candidates for type domain.Vehicle. Cannot determine which one to use!"
 
 That's because Container don't know which concrete class you want. Problem can be solved with Named @Component and @Qualified.
 
@@ -71,7 +70,7 @@ How about primitive type as constructor parameters? It's not quite likely to fin
 See the MultiWheelVehicle freak below:
 
 run the following command:
-$ git checkout 2e67e6a
+$ git checkout ba7578d
 
 In IDEA
     open Main.java
@@ -126,3 +125,37 @@ $ git checkout 680519c
 
 In IDEA
     check out AppRunner.java for @Prototype annotation and ioc-config.xml for "prototype" scope. Using these, every time you get bean from container with the same type(only one instance of this type exist) or same id, you get a new instance, otherwise you always get the same instance.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In terms of container scope, refer "ContainerScopeTest.java" in IOC container test source code...
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In summary:
+    To simply use annotation driven configuration without ambiguous dependency candidates. Use the following code:
+
+        Create container:
+            IocContainer container = new IocContainerBuilder().withPackageName(packageName).build();
+        Annotations for configuration(compatible with JSR 330)
+            @Component: specify classes to be included in container.
+            @Inject: Can be put on constructor, field, and setter.
+
+    To use annotation driven configuration with ambiguous dependency candidates. Change a little bit on annotations:
+
+        @Component(<name>): specify a name for bean instantiated from this class.
+        @Qualified(id=<name>): specify a bean for certain dependency. Can be applied on fields, constructor parameters, setters.
+
+    Using primitive in DI is not recommended. We only provide primitive dependency injected from constructor. To use primitive injection, xml configuration is needed.
+
+        Create container:
+                IocContainer container = new IocContainerBuilder().withConfigFile(configFile).build();
+        key words in xml(as you've been familiar with in Spring...):
+                bean id class scope constructor-arg property value ref
+
+    Parent scope is supported, and hybrid(annotation and xml) configuration is supported, so you can say:
+
+        IocContainer container = new IocContainerBuilder().withPackageName(packageName)
+                                                          .withConfigFile(configFile)
+                                                          .withParent(parent)
+                                                          .build();
