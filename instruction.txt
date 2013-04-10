@@ -70,7 +70,7 @@ How about primitive type as constructor parameters? It's not quite likely to fin
 See the MultiWheelVehicle freak below:
 
 run the following command:
-$ git checkout ba7578d
+$ git checkout b67d219
 
 In IDEA
     open Main.java
